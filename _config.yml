@@ -1,0 +1,95 @@
+# User Settings | Edit there as per required
+
+title: AWSKRUG
+url: "https://blog.awskr.org"
+baseurl: ""
+
+# This will show up at the top of index page
+site_heading: >
+    AWSURKG <span class="faded">'s blog</span>
+
+email: awsugkr@gmail.com
+author: AWSKRUG
+# This description will show up in google search results
+# (for index page) etc.
+description: >
+    아마존웹서비스 한국사용자모임
+
+# This will what will show against &copy; in the footer
+copyright: AWSKRUG
+# Toggle your short bio, which will displayed on your index page
+# Just toggle it and run jekyll again to see
+intro: false         # Tip: Remove the span from site_heading if intro is set to true
+# This will be displayed in your intro
+short_bio: >
+    
+permalink: /:title.html
+
+# Comments are powered by disqus
+comments: true
+
+# keep about_stub roughly 12 words long for best results
+# This will show up at the bottom of each post
+# Note that about_footer should be true if you want
+# to see author information at the bottom of each post
+about_stub: >
+    아마존웹서비스 한국사용자모임
+
+about_footer: true
+
+twitter_username: awskrug
+github_username: awskoreaug
+facebook_id: groups/awskrug/
+
+favicon: true
+favicon_location: "images/favicon.ico"
+
+profile_picture: images/temp.png
+paginate: 5
+paginate_path: "/page/:num"
+tracking_id: UA-75940635-1 # GA Tracking ID
+
+# Social Stuff | open graph and twitter cards
+og_image: "images/accent.png" # This will show in facebook thumbnails
+twitter_image: "http://ankitsultana.me/images/accent.png?1234" # This will show in twitter cards
+
+####################################
+####################################
+####################################
+### Build Settings | Don't Touch ###
+####################################
+####################################
+####################################
+
+markdown: redcarpet
+redcarpet:
+  extensions: 
+    - no_intra_emphasis
+    - fenced_code_blocks
+    - autolink
+    - strikethrough
+    - superscript
+
+gems:
+    - jekyll-paginate
+
+sass:
+    style: compressed
+    sass_dir: _sass
+
+# Scopes
+defaults:
+    -
+        scope:
+            path:   ""
+            type:   "pages"
+        values:
+            layout: "page"
+    -
+        scope:
+            path:   ""
+            type:   "posts"
+        values:
+            layout: "post"
+
+exclude: [vendor] # For travis ci
