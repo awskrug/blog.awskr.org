@@ -6,7 +6,7 @@ baseurl: ""
 
 # This will show up at the top of index page
 site_heading: >
-    AWSURKG <span class="faded">'s blog</span>
+    AWSKRUG <span class="faded">'s blog</span>
 
 email: awsugkr@gmail.com
 author: AWSKRUG
