@@ -54,7 +54,7 @@ x에는 아래와 같은 단어가 들어갑니다.
 var AWS = require('aws-sdk');
 
 // 지역(region)과 자격증명(credentials)을 설정 하세요,
-// 이것은 서비스 클라이언트에 직접 이동할 수 있습니다
+// 이것은 서비스 클라이언트로 직접 이동할 수 있습니다
 AWS.config.update({region: 'REGION', credentials: {/* */}});
 
 var s3 = new AWS.S3({apiVersion: '2006-03-01'});
@@ -120,11 +120,11 @@ module.exports = {
   },
   module: {
     /**
-      * webpack에게 'json'파일 읽는 방법을 말해줍니다 because
+      * webpack에게 'json'파일 읽는 방법을 말해줍니다
       * 왜냐하면 기본적으로 webpack은
-      * 자바스크립트 파일 다루는법만 알기 때문입니다.
+      * 자바스크립트 파일을 다루는 방법만 알기 때문입니다.
       * webpack이 'json' 파일이 포함되어있는 'require()' 구문을 만나면
-      * json-loader를 사용하게 됩니다 .
+      * json-loader를 사용하게 됩니다
       */
     loaders: [
       {
@@ -137,14 +137,14 @@ module.exports = {
 ```
   
 webpack.config.js에서 진입점을 browser.js로 지정했습니다. 진입점이란 포함된 모듈 탐색을 시작하는 파일입니다. 
-또한 출력을 bundle.js로 정의했습니다. 이 번들은 어플리케이션을 실행하기 위해 필요한 모든 자바스크립트를 포함합니다. 
+그리고 출력을 bundle.js로 정의했습니다. 이 번들은 어플리케이션을 실행하기 위해 필요한 모든 자바스크립트를 포함합니다. 
 s3.js가 browser.js에 포함되어있기 때문에 webpack은 이미 s3.js를 포함하는 것을 알고있습니다. 
 따라서 s3.js를 진입점으로 지정할 필요가 없습니다. 
 또한, aws-sdk가 s3.js에 포함되어 있기 때문에 aws-sdk를 포함해야 하는 것도 알고있습니다.  
   
-webpack에게 포함된 JSON 파일을 다루는 방법을 말해주는 로더를 지정했음을 주목하세요, 이 경우에 이전에 설치한 json-loader를 사용합니다.  
+webpack에게 포함된 JSON 파일을 다루는 방법을 말해주는 로더를 지정했음을 주목하세요, 이 경우에 이전에 설치한 json-loader를 사용합니다. 
 기본적으로 webpack은 자바스크립트 파일만 지원하지만 로더를 사용해서 다른 종류의 파일을 포함하는 지원 또한 추가할 수 있습니다. 
-AWS SDK는 JSON 파일을 엄청나게 사용하기 때문에 추가적인 설정이 없으면 webpack이 번들을 생성할 때 에러를 던집니다.  
+AWS SDK는 JSON 파일을 엄청나게 사용하기 때문에 이런 추가적인 설정이 없으면 webpack이 번들을 생성할 때 에러를 던집니다.  
   
 ##webpack 실행하기
 어플리케이션을 빌드할 준비가 거의 다 됐습니다! package.json에서 scripts 객체에 "build": "webpack" 를 추가하세요.  
@@ -170,7 +170,7 @@ AWS SDK는 JSON 파일을 엄청나게 사용하기 때문에 추가적인 설�
 }
 ```
   
-이제 커맨드라인에서 npm run build 명령어를 실행하면 webpack이 프로젝트 파일의 루트 디렉토리에 bundle.js 파일을 생성합니다.  
+이제 커맨드라인에서 npm run build 명령어를 실행하면 webpack이 프로젝트 파일의 루트 디렉토리에 bundle.js 파일을 생성합니다. 
 webpack이 알려주는 결과가 아래와 같아야 합니다:
 
 ```bash
