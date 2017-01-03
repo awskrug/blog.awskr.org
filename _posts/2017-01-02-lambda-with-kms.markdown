@@ -15,7 +15,7 @@ categories: Lambda KMS
 
 이번에는 [AWS Key Management Service](https://aws.amazon.com/kms/)(이하 KMS)의 공통 키 암호방식을 사용하여 암호화 된 인증 정보를 AWS Lambda 함수의 코드에 포함 된 함수 호출시 인증 정보를 해독하는 방법을 소개합니다.
 
-![decrypt-sensitive-data-with-kms-on-lambda-invocation](<decrypt-sensitive-data-with-kms-on-lambda-invocation.png>)
+![decrypt-sensitive-data-with-kms-on-lambda-invocation](</images/2017-01-02/decrypt-sensitive-data-with-kms-on-lambda-invocation.png>)
 
 기본적인 아이디어는 다음 블로그에 쓰여져 있으며, KMS를 사용한 암호화 작업만을 추려내었습니다.
 
@@ -40,7 +40,7 @@ KMS는 마스터 키를 사용한 암호화와 복호화 처리를 API로 분리
 
 관리 콘솔에 로그인한 후 IAM에서 Encryption Keys를 선택하면 KMS관리 화면으로 이동할 수 있습니다. KMS라는 이름은 메뉴상에서는 존재하지 않으므로 주의하시기 바랍니다.
 
-![kms_management_console](<kms_management_console-640x335.png>)
+![kms_management_console](</images/2017-01-02/kms_management_console-640x335.png>)
 
 KMS 키는 리전마다 개별적으로 존재합ㄴ디ㅏ. Filter의 풀다운 메뉴에서 키를 생성하는 지역을 선택하고 "Create Key"를 클릭하여 마스터 키 생성화면으로 이동합니다.
 
