@@ -45,7 +45,7 @@ KMS는 마스터 키를 사용한 암호화와 복호화 처리를 API로 분리
 
 ![kms_management_console](</images/2017-01-02/kms_management_console-640x335.png>)
 
-KMS 키는 리전마다 개별적으로 존재합ㄴ디ㅏ. Filter의 풀다운 메뉴에서 키를 생성하는 지역을 선택하고 "Create Key"를 클릭하여 마스터 키 생성화면으로 이동합니다.
+KMS 키는 리전에 보관됩니다. Filter의 풀다운 메뉴에서 키를 생성하는 지역을 선택하고 "Create Key"를 클릭하여 마스터 키 생성화면으로 이동합니다.
 
 Key Administrative Permissions 와 Key Permissions 에는 평소 사용하는 시스템 관리자를 선택합니다.
 
@@ -68,7 +68,7 @@ $ aws kms list-keys
 }
 ```
 
-마스터키의 ARN을 환경변수에 설정합니다. 키를 지정하는 방법에는 KeyId 또는 별칭(Alias)의 두가지 방법이 있습니다.
+마스터키의 ARN을 환경변수에 설정합니다. 키를 지정하는 방법에는 KeyId 또는 별칭(Alias)을 사용하는 두가지 방법이 있습니다.
 
 ```bash
 $ export KEYID=arn:aws:kms:ap-northeast-1:123456789012:key/xxx-yyy-zzz # KeyId
@@ -76,7 +76,8 @@ $ export KEYID=arn:aws:kms:ap-northeast-1:123456789012:alias/lambda # Alias
 ```
 
 ## 마스터키를 사용한 복호화
-마서터키로 암호화를 하기위해서는 `Encrypt` API를 사용합니다.
+
+마스터키로 암호화를 하기위해서는 `Encrypt` API를 사용합니다.
 
 ```bash
 $ aws kms encrypt --key-id $KEYID --plaintext 'hello, world!'
@@ -86,7 +87,7 @@ $ aws kms encrypt --key-id $KEYID --plaintext 'hello, world!'
 }
 ```
 
-레스폰스의 `Plaintext`는 복호화한 데이터(즉 plaintext)를 base64로 엔코드한 것 입니다.
+응답(response)의 `Plaintext`는 복호화한 데이터(즉 plaintext)를 base64로 엔코드한 것 입니다.
 
 base64로 디코드하면 plaintext가 됩니다.
 
@@ -99,7 +100,7 @@ hello, world!
 
 KMS로 암호화 한 후 base64로 엔코딩한 문자열을 람다 함수내에 적어넣어 Lambda함수 실행시에 복호화해 보겠습니다.
 
-보통은 암호화한 유저데이터를 사용하여 무언가 처리를 하지만 이번에는 복호화한 문자열을 그대로 레스폰스로서 반환한ㅂ니다.
+보통은 암호화한 유저데이터를 사용하여 무언가 처리를 하지만 이번에는 복호화한 문자열을 그대로 반환합니다.
 
 Lambda함수는 파이썬으로 구현하였습니다.
 
