@@ -6,20 +6,20 @@ author: Jeff Barr
 about_stub: 이상록
 profile_picture:
 author_site:
-categories: [Amazon EC2](https://aws.amazon.com/blogs/aws/category/amazon-ec2/), [EC2 Systems Manager](https://aws.amazon.com/blogs/aws/category/ec2-systems-manager/), [Windows](https://aws.amazon.com/blogs/aws/category/windows/)
+categories: Amazon EC2, EC2 Systems Manager, Windows
 ---
 
 #EC2 System Manager - EC2와 On-premises 시스템 설정 및 관리
   
 지난 해 EC2 Run Command 를 [소개하고](https://aws.amazon.com/blogs/aws/new-ec2-run-command-remote-instance-management-at-scale/) 
 EC2 인스턴스와 [하이브리드 및 교차 클라우드 환경](https://aws.amazon.com/blogs/aws/ec2-run-command-update-hybrid-and-cross-cloud-management/)에서 
-원격 인스턴스 관리를 대규모로 수행하는 방법을 보여줬습니다. 
+원격 인스턴스 관리를 대규모로 수행하는 방법을 보여드렸습니다. 
 이 과정에서 [리눅스 인스턴스에 대한 지원](https://aws.amazon.com/blogs/aws/ec2-run-command-update-now-available-for-linux-instances/)을 추가해 EC2 Run Command를 광범위하게 적용할 수 있고 
 매우 유용한 관리 도구로 만들었습니다.  
   
 **가족이 되신 것을 환영합니다**  
 [Werner](https://twitter.com/Werner)가 [AWS re:Invent](https://reinvent.awsevents.com/)에서 [EC2 System Manager](https://aws.amazon.com/ec2/systems-manager/)를 
-발표했고 드디어 이것에 대해 말하게 되었습니다!  
+발표했고 드디어 이것에 대해 말할 수 있게 되었습니다!  
   
 EC2 Run Command의 향상된 버전과, 여덟 개의 유용한 기능이 포함된 새로운 관리 서비스입니다. 
 EC2 Run Command 처럼 윈도우, 리눅스를 실행하는 서비스와 인스턴스로 이루어진 교차 클라우드 환경 및 하이브리드 환경을 지원합니다. 
@@ -46,7 +46,7 @@ EC2 Run Command 처럼 윈도우, 리눅스를 실행하는 서비스와 인스�
   
 각각을 살펴봅시다..  
   
-**Run Command 개선 사항**  
+####Run Command 개선 사항
 이제 동시에 실행되는 명령의 숫자를 제어할 수 있습니다. 
 명령이 내부 업데이트나 서버 패치와 같이 제한적인 공유 리소스들을 참조하고, 너무 많은 리퀘스트로 
 인한 오버로딩을 피하고 싶은 상황에서 유용합니다.  
@@ -74,7 +74,7 @@ $ aws ssm send-command --max-errors 5 ...
 $ aws ssm send-command --max-errors 5% ...
 ```
   
-**State Manager**  
+####State Manager
 State Manager는 문서를 따라 인스턴스를 정의된 상태로 유지하도록 도와줍니다. 
 문서를 만들어 타겟 인스턴스 집합과 연결한 다음, 문서를 실행해야 하는 시간과 빈도를 지정하기 위한 연관성을 생성합니다. 
 다음은 요일 파일의 메세지를 업데이트하는 문서입니다.  
@@ -88,7 +88,7 @@ State Manager는 문서를 따라 인스턴스를 정의된 상태로 유지하�
 모든 연관성을 볼 수 있으며 새로운 연관성을 선택하고 Apply Association Now를 클릭해 실행할 수 있습니다.  
 ![3](https://media.amazonwebservices.com/blog/2016/rc_see_assoc_1.png)  
   
-**Parameter Store**  
+####Parameter Store
 이 기능은 라이센스 키, 비밀번호 및 인스턴스에 배포하려는 기타 데이터의 저장 및 관리를 단순화합니다. 
 각 매개변수는 형(문자열, 문자열 리스트, 보안 문자열)이 지정되어 있고 암호화된 형태로 저장할 수 있습니다. 다음은 매개변수를 생성하는 방법입니다:  
 ![4](https://media.amazonwebservices.com/blog/2016/rc_create_param_2.png)  
@@ -96,9 +96,9 @@ State Manager는 문서를 따라 인스턴스를 정의된 상태로 유지하�
 다음은 커맨드에서 매개변수를 참조하는 방법입니다:  
 ![5](https://media.amazonwebservices.com/blog/2016/rc_use_param_3.png)  
   
-**Maintenance Window**  
+####Maintenance Window
 이 기능은 업데이트 설치와 기타 시스템 유지관리를 위한 시간을 지정할 수 있게 합니다. 
-다음은 매 주 토요일에 4시간동안 열리는 시간을 생성하는 방법입니다:  
+다음은 매 주 토요일에 4시간동안 열리는 유지 관리 기간을 생성하는 방법입니다:  
 ![6](https://media.amazonwebservices.com/blog/2016/rc_create_maint_1.png)  
   
 창을 생성한 후에는 인스턴스 Id 또는 태그로 창에 인스턴스 집합을 할당해야 합니다:  
@@ -108,7 +108,7 @@ State Manager는 문서를 따라 인스턴스를 정의된 상태로 유지하�
 예를 들어 리눅스 쉘 스크립트를 실행할 수 있습니다:  
 ![8](https://media.amazonwebservices.com/blog/2016/rc_reg_maint_task_2.png)  
   
-**Software Inventory**  
+####Software Inventory
 이 기능은 소프트웨어와 인스턴스 집합의 설정에 대한 정보를 수집합니다. 
 이 정보에 접근하기 위해 Managed Instance와 Setup Inventory를 클릭합니다:  
 ![9](https://media.amazonwebservices.com/blog/2016/rc_find_managed_instances_1.png)  
@@ -118,7 +118,7 @@ State Manager는 문서를 따라 인스턴스를 정의된 상태로 유지하�
 타겟을 선택하고 일정을 설정하고 목록화 할 항목의 유형을 확인한 다음 Setup Inventory를 클릭하기만 하세요:  
 ![11](https://media.amazonwebservices.com/blog/2016/rc_actually_setup_inventory_1.png)  
   
-인벤토리가 실행된 후에는 인스턴스를 선택하고 인벤토리를 클릭해서 결과를 고나찰할 수 있습니다:  
+인벤토리가 실행된 후에는 인스턴스를 선택하고 인벤토리를 클릭해서 결과를 관찰할 수 있습니다:  
 ![12](https://media.amazonwebservices.com/blog/2016/rc_see_instance_inventory_1.png)  
   
 더 분석하기 위해서 결과를 필터링할 수 있습니다. 
@@ -129,7 +129,7 @@ State Manager는 문서를 따라 인스턴스를 정의된 상태로 유지하�
 다음은 4.6 이전 버전의 .NET을 실행하고 있는 Windows Server 2012 R2 인스턴스를 찾는 방법입니다:  
 ![14](https://media.amazonwebservices.com/blog/2016/rc_man_query_1.png)  
   
-**AWS Config Integration**  
+####AWS Config Integration
 인벤토리의 결과는 [AWS Config](https://aws.amazon.com/config/)까지 연결되어 어플리케이션, 
 AWS 요소, 인스턴스 정보, 네트워크 설정, Windows 업데이트의 변화를 지속적으로 추적합니다. 
 인스턴스 Config 타임라인 위에 있는 Managed instance information을 클릭해 이 정보에 접근할 수 있습니다:  
@@ -139,7 +139,7 @@ AWS 요소, 인스턴스 정보, 네트워크 설정, Windows 업데이트의 �
 하단의 세줄은 인벤토리 정보로 이어집니다. 다음은 네트워크 설정입니다:  
 ![17](https://media.amazonwebservices.com/blog/2016/ri_mii_inv_net_1.png)  
   
-**Patch Management**  
+####Patch Management
 이 기능은 Windows 인스턴스에 있는 운영체제를 최신으로 유지하게 도와줍니다. 
 지정한 유지관리 기간 동안 패치를 적용하고 기준을 준수하여 수행됩니다. 
 기준은 분류와 심각도에 따라 패치를 자동으로 승인하는 규칙과 
@@ -155,13 +155,13 @@ AWS 요소, 인스턴스 정보, 네트워크 설정, Windows 업데이트의 �
 그리고 값을 기준과 연결했습니다:  
 ![20](https://media.amazonwebservices.com/blog/2016/rc_mod_patch_group_1.png)  
   
-다음 단계는 AWS-ApplyPatchBaseline 문서를 사용해 유지 관리 기간동안 패치의 적용을 조정하는 것입니다:  
+다음 단계에서는 AWS-ApplyPatchBaseline 문서를 사용해 유지 관리 기간동안 패치의 적용을 조정합니다:  
 ![21](https://media.amazonwebservices.com/blog/2016/rc_reg_apply_patch_baseline_1.png)  
   
 Managed Instances 목록으로 돌아가서 한 쌍의 필터를 사용해 패치가 필요한 인스턴스를 찾을 수 있습니다:  
 ![22](https://media.amazonwebservices.com/blog/2016/rc_patch_compliance_1.png)  
   
-**Automation**  
+####Automation
 마지막이지만 앞의 기능 못지않게 중요한 Automation 기능은 일반적인 AMI 구축과 업데이트 작업을 간소화합니다. 
 예를 들어 AWS-UpdateLinuxAmi 문서를 사용해 매 달마다 새 Amazon Linux AMI를 만들 수 있습니다:  
 ![23](https://media.amazonwebservices.com/blog/2016/rc_auto_update_ami_1.png)  
@@ -169,7 +169,7 @@ Managed Instances 목록으로 돌아가서 한 쌍의 필터를 사용해 패�
 다음은 이 automation이 실행되었을 때 일어나는 일을 보여줍니다:  
 ![24](https://media.amazonwebservices.com/blog/2016/rc_auto_update_1.png)  
   
-**지금 사용할 수 있습니다**  
+####지금 사용할 수 있습니다
 위에서 설명한 EC2 Systems Manager의 모든 기능을 지금 무료로 사용할 수 있습니다. 
 당신이 관리하는 리소스에 대해서만 비용을 지불합니다.  
   
